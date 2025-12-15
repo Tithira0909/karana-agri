@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap");
 
 :root {
   --fg: #241910;
@@ -254,4 +254,113 @@ section { width: 100vw; height: 100vh; position: relative; overflow: hidden; }
   .hero-panel-card{
     grid-template-columns: 1fr;
   }
+}
+
+/* Bottom Section Dark Mode */
+.bottom-section {
+  width: 100vw;
+  background: #1a1510;
+  color: #fefbf4;
+  padding: 6rem 2rem 4rem;
+  position: relative;
+  z-index: 5;
+}
+
+.bottom-container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 6rem;
+}
+
+/* Typography */
+.bottom-section h2, .bottom-section h3 {
+  font-family: "Italiana", serif;
+  font-weight: 400;
+  color: #ffeeb0; /* gold highlight */
+}
+
+.bottom-section h2 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+}
+
+.bottom-section h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 238, 176, 0.2);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.bottom-section p {
+  font-family: "Host Grotesk", sans-serif;
+  text-transform: none;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+}
+
+/* Buyers / Logos */
+.buyers-strip {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.buyer-badge {
+  padding: 0.8rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  font-family: "DM Mono";
+  font-size: 0.9rem;
+  color: #fff;
+  opacity: 0.7;
+}
+
+/* Footer part within section */
+.bottom-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-logo h4 {
+  font-family: "Italiana", serif;
+  font-size: 2rem;
+  color: #fff;
+}
+.footer-logo p {
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.5;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+}
+.footer-links a {
+  color: #fff;
+  opacity: 0.6;
+  font-size: 0.9rem;
+  transition: opacity 0.3s;
+}
+.footer-links a:hover { opacity: 1; color: #ffeeb0; }
+
+@media (max-width: 800px) {
+  .bottom-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .bottom-section h2 { font-size: 2.5rem; }
+  .bottom-footer { flex-direction: column; align-items: flex-start; }
 }
