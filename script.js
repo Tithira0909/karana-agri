@@ -88,8 +88,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const setupScroll = () => {
-    // init panels hidden
-    gsap.set(panels, { opacity: 0, y: 14, scale: 0.98 });
+    // init panels (reset styles for horizontal scroll)
+    gsap.set(panels, { opacity: 1, y: 0, scale: 1 });
+
+    const heroPanels = document.querySelector(".hero-panels");
 
     ScrollTrigger.create({
       trigger: ".hero",
@@ -109,8 +111,9 @@ document.addEventListener("DOMContentLoaded", () => {
         render();
 
         /* 2) Nav fade early */
-        if (progress <= 0.12) gsap.set(nav, { opacity: 1 - progress / 0.12 });
-        else gsap.set(nav, { opacity: 0 });
+        // Removed fade to keep nav visible or you can adjust this logic
+        // if (progress <= 0.12) gsap.set(nav, { opacity: 1 - progress / 0.12 });
+        // else gsap.set(nav, { opacity: 0 });
 
         /* 3) Hero title fades out early */
         const titleStart = 0.05;
@@ -118,30 +121,26 @@ document.addEventListener("DOMContentLoaded", () => {
         const t = gsap.utils.clamp(0, 1, (progress - titleStart) / (titleEnd - titleStart));
         gsap.set(header, { opacity: 1 - t, y: -t * 30, scale: 1 - t * 0.03 });
 
-        /* 4) Panels come/go until end (based on data-start/end) */
-        panels.forEach((panel) => {
-          const s = parseFloat(panel.dataset.start || "0");
-          const e = parseFloat(panel.dataset.end || "0");
+        /* 4) Horizontal Scroll */
+        // Determine total width of all panels
+        const totalPanels = panels.length;
+        const windowWidth = window.innerWidth;
+        // The container needs to move so that the last panel enters the view
+        // If each panel is 100vw, total width is totalPanels * 100vw
+        // We want to move from x=0 to x=-(totalPanels-1)*100vw (so last panel is fully visible)
+        // However, we want to sync this with scroll.
 
-          // show window
-          const local = (progress - s) / (e - s);
+        // Let's assume we want to start scrolling panels after title fades out
+        const scrollStart = 0.25;
+        const scrollEnd = 1.0;
 
-          // fade in first 20%, hold, fade out last 20%
-          const fadeIn = gsap.utils.clamp(0, 1, local / 0.20);
-          const fadeOut = gsap.utils.clamp(0, 1, (1 - local) / 0.20);
-          const visible = Math.min(fadeIn, fadeOut);
-
-          // only apply when within range
-          if (progress >= s && progress <= e) {
-            gsap.set(panel, {
-              opacity: visible,
-              y: (1 - visible) * 14,
-              scale: 0.98 + visible * 0.02,
-            });
-          } else {
-            gsap.set(panel, { opacity: 0 });
-          }
-        });
+        if (progress > scrollStart) {
+             const scrollProgress = (progress - scrollStart) / (scrollEnd - scrollStart);
+             const xPos = -scrollProgress * (totalPanels - 1) * windowWidth;
+             gsap.set(heroPanels, { x: xPos });
+        } else {
+             gsap.set(heroPanels, { x: 0 });
+        }
       },
     });
 
