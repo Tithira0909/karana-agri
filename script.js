@@ -42,9 +42,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const videoFrames = { frame: 0 };
   let imagesToLoad = frameCount;
 
+  const loaderEl = document.getElementById("loader");
+  const progressEl = document.getElementById("progress");
+
   const onLoad = () => {
     imagesToLoad--;
+    const percent = Math.floor(((frameCount - imagesToLoad) / frameCount) * 100);
+    if (progressEl) progressEl.innerText = `${percent}%`;
+
     if (!imagesToLoad) {
+      if (loaderEl) loaderEl.classList.add("hidden");
       render();
       setupScroll();
     }
