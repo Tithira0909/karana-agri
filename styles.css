@@ -34,6 +34,12 @@ h1 { font-size: 3rem; }
 p { text-transform: uppercase; font-size: 0.8rem; font-weight: 500; }
 a { text-decoration: none; text-transform: uppercase; font-size: 0.8rem; font-weight: 500; color: var(--fg); }
 
+/* Highlight text style */
+.highlight {
+  color: #ffeeb0; /* Light gold/yellow */
+  text-shadow: 0 0 20px rgba(255, 238, 176, 0.4);
+}
+
 .btn {
   padding: 0.75rem 1.5rem;
   border-radius: 999px;
@@ -66,8 +72,8 @@ nav .nav-links { display: flex; gap: 3rem; }
 
 nav .logo { display: flex; justify-content: center; align-items: center; }
 nav .logo img {
-  width: 6rem;
-  height: 6rem;
+  width: 9rem;
+  height: 9rem;
   object-fit: contain;
   background: rgb(248, 247, 255);  
   border-radius: 50px;          /* ✅ */
@@ -102,7 +108,12 @@ section { width: 100vw; height: 100vh; position: relative; overflow: hidden; }
   will-change: transform, opacity;
 }
 
-.header h1 { width: 72%; margin: 0 auto 0.5rem; }
+.header h1 {
+  width: 72%;
+  margin: 0 auto 0.5rem;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
 
 .client-logos {
   width: 42%;
@@ -147,13 +158,13 @@ section { width: 100vw; height: 100vh; position: relative; overflow: hidden; }
   width: min(980px, 92vw);
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 18px;
-  padding: 18px;
-  border-radius: 20px;
-  border: 1px solid rgba(36,25,16,0.12);
-  background: rgba(254, 251, 244, 0.75);
-  backdrop-filter: blur(10px);
-  box-shadow: var(--shadow);
+  gap: 24px;
+  padding: 32px;
+  border-radius: 24px;
+  border: 1px solid rgba(36,25,16,0.08);
+  background: #ffffff;
+  backdrop-filter: none;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08), 0 10px 15px rgba(0,0,0,0.05);
 }
 
 /* image container inside card */

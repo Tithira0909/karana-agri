@@ -119,27 +119,46 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.set(header, { opacity: 1 - t, y: -t * 30, scale: 1 - t * 0.03 });
 
         /* 4) Panels come/go until end (based on data-start/end) */
-        panels.forEach((panel) => {
+        panels.forEach((panel, i) => {
           const s = parseFloat(panel.dataset.start || "0");
           const e = parseFloat(panel.dataset.end || "0");
 
           // show window
           const local = (progress - s) / (e - s);
 
-          // fade in first 20%, hold, fade out last 20%
-          const fadeIn = gsap.utils.clamp(0, 1, local / 0.20);
-          const fadeOut = gsap.utils.clamp(0, 1, (1 - local) / 0.20);
-          const visible = Math.min(fadeIn, fadeOut);
-
-          // only apply when within range
-          if (progress >= s && progress <= e) {
+          // Card Stack Effect Logic
+          if (progress < s) {
+            // Future: hidden
+            gsap.set(panel, { opacity: 0, pointerEvents: "none" });
+          } else if (progress >= s && progress <= e) {
+            // Active: Fade in, scale up to 1
+            const fadeIn = gsap.utils.clamp(0, 1, local / 0.15);
             gsap.set(panel, {
-              opacity: visible,
-              y: (1 - visible) * 14,
-              scale: 0.98 + visible * 0.02,
+              opacity: fadeIn,
+              y: (1 - fadeIn) * 14,
+              scale: 0.96 + fadeIn * 0.04,
+              filter: "blur(0px)",
+              zIndex: 10 + i,
+              pointerEvents: "auto"
             });
           } else {
-            gsap.set(panel, { opacity: 0 });
+            // Past: progress > e
+            const pastProgress = (progress - e) * 10;
+            const blurAmount = Math.min(10, pastProgress * 5);
+            const scaleAmount = Math.max(0.9, 1 - pastProgress * 0.05);
+            const opacityAmount = Math.max(0, 1 - pastProgress * 0.5);
+
+            if (opacityAmount <= 0) {
+              gsap.set(panel, { opacity: 0, pointerEvents: "none" });
+            } else {
+              gsap.set(panel, {
+                opacity: 1,
+                scale: scaleAmount,
+                filter: `blur(${blurAmount}px)`,
+                zIndex: 10 + i - 1,
+                pointerEvents: "none"
+              });
+            }
           }
         });
       },
