@@ -75,7 +75,7 @@ nav .logo img {
   width: 9rem;
   height: 9rem;
   object-fit: contain;
-  background: rgb(248, 247, 255);  
+  background: transparent;
   border-radius: 50px;          /* ✅ */
 }
 nav .logo a {
@@ -161,10 +161,11 @@ section { width: 100vw; height: 100vh; position: relative; overflow: hidden; }
   gap: 24px;
   padding: 32px;
   border-radius: 24px;
-  border: 1px solid rgba(36,25,16,0.08);
-  background: #ffffff;
-  backdrop-filter: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(31, 107, 59, 0.4);
+  backdrop-filter: blur(12px);
   box-shadow: 0 20px 40px rgba(0,0,0,0.08), 0 10px 15px rgba(0,0,0,0.05);
+  color: #ffffff;
 }
 
 /* image container inside card */
@@ -201,15 +202,17 @@ section { width: 100vw; height: 100vh; position: relative; overflow: hidden; }
   font-size: clamp(1.6rem, 2.3vw, 2.2rem);
   font-weight: 600;
   letter-spacing: -0.3px;
+  color: #ffffff;
 }
 
 .hero-panel-text p{
   text-transform: none;
   font-size: 1.02rem;
   line-height: 1.65;
-  opacity: 0.85;
+  opacity: 0.9;
   max-width: 62ch;
   font-family: "DM Mono"; /* keep paragraph mono if you like */
+  color: #ffffff;
 }
 
 /* small chips */

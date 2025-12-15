@@ -144,15 +144,15 @@ document.addEventListener("DOMContentLoaded", () => {
           } else {
             // Past: progress > e
             const pastProgress = (progress - e) * 10;
-            const blurAmount = Math.min(10, pastProgress * 5);
-            const scaleAmount = Math.max(0.9, 1 - pastProgress * 0.05);
-            const opacityAmount = Math.max(0, 1 - pastProgress * 0.5);
+            const blurAmount = Math.min(30, pastProgress * 20);
+            const scaleAmount = Math.max(0.85, 1 - pastProgress * 0.1);
+            const opacityAmount = Math.max(0, 1 - pastProgress * 1.2);
 
             if (opacityAmount <= 0) {
               gsap.set(panel, { opacity: 0, pointerEvents: "none" });
             } else {
               gsap.set(panel, {
-                opacity: 1,
+                opacity: opacityAmount,
                 scale: scaleAmount,
                 filter: `blur(${blurAmount}px)`,
                 zIndex: 10 + i - 1,
