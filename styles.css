@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap");
+
+:root {
+  --fg: #241910;
+  --bg: #fefbf4;
+  --line: rgba(36, 25, 16, 0.12);
+
+  /* card look */
+  --card: rgba(254, 251, 244, 0.72);
+  --shadow: 0 24px 70px rgba(36, 25, 16, 0.16);
+
+  /* accent */
+  --accent: #1f6b3b;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "DM Mono", monospace;
+  background: var(--bg);
+  color: var(--fg);
+  overflow-x: hidden;
+}
+
+img { width: 100%; height: 100%; object-fit: cover; }
+
+h1, h2 {
+  font-family: "Host Grotesk";
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+h1 { font-size: 3rem; }
+p { text-transform: uppercase; font-size: 0.8rem; font-weight: 500; }
+a { text-decoration: none; text-transform: uppercase; font-size: 0.8rem; font-weight: 500; color: var(--fg); }
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(36, 25, 16, 0.14);
+  background: rgba(254, 251, 244, 0.35);
+  backdrop-filter: blur(6px);
+}
+.btn.secondary {
+  background: rgba(36, 25, 16, 0.82);
+}
+.btn.secondary a { color: var(--bg); }
+
+/* ✅ NAV: now transparent */
+nav {
+  position: fixed;
+  width: 100vw;
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  z-index: 10;
+  background: transparent;            /* ✅ */
+  border-bottom: 0;                   /* ✅ */
+  backdrop-filter: none;              /* ✅ */
+  will-change: opacity;
+}
+
+nav > div { flex: 1; }
+nav .nav-links { display: flex; gap: 3rem; }
+
+nav .logo { display: flex; justify-content: center; align-items: center; }
+nav .logo img {
+  width: 6rem;
+  height: 6rem;
+  object-fit: contain;
+  background: rgb(248, 247, 255);  
+  border-radius: 50px;          /* ✅ */
+}
+nav .logo a {
+  text-transform: none;
+  font-size: 1.55rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: transparent;            /* ✅ */
+}
+
+nav .nav-buttons { display: flex; gap: 1rem; justify-content: flex-end; }
+
+/* HERO */
+section { width: 100vw; height: 100vh; position: relative; overflow: hidden; }
+.hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.header {
+  width: min(980px, 100%);
+  text-align: center;
+  will-change: transform, opacity;
+}
+
+.header h1 { width: 72%; margin: 0 auto 0.5rem; }
+
+.client-logos {
+  width: 42%;
+  display: flex;
+  gap: 0.5rem;
+  margin: 0.8rem auto 0;
+}
+
+.client-logo {
+  flex: 1;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(36,25,16,.10);
+  background: rgba(254,251,244,.55);
+  display: grid;
+  place-items: center;
+}
+.client-logo img { width: 70%; height: 70%; object-fit: contain; }
+
+/* ✅ PANELS wrapper */
+.hero-panels {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* ✅ Product “nice card” panels */
+.hero-img-container.hero-panel{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: translateY(14px) scale(0.98);
+  will-change: transform, opacity;
+ 
+}
+
+/* card layout wrapper */
+.hero-panel-card{
+  width: min(980px, 92vw);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 18px;
+  padding: 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(36,25,16,0.12);
+  background: rgba(254, 251, 244, 0.75);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+
+/* image container inside card */
+.hero-img{
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(36,25,16,0.10);
+  background: rgba(31,107,59,0.06);
+  box-shadow: 0 16px 50px rgba(36,25,16,0.10);
+  aspect-ratio: 16 / 10;
+ 
+}
+.hero-img img{
+  object-fit: contain;
+  padding: 14px;
+  opacity: 0.95;
+   border-radius: 500px;
+}
+
+/* ✅ Product text style (nicer font look) */
+.hero-panel-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  text-align: left;
+
+  /* switch product text to Host Grotesk */
+  font-family: "Host Grotesk";
+}
+
+.hero-panel-text h2{
+  font-size: clamp(1.6rem, 2.3vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.hero-panel-text p{
+  text-transform: none;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  opacity: 0.85;
+  max-width: 62ch;
+  font-family: "DM Mono"; /* keep paragraph mono if you like */
+}
+
+/* small chips */
+.hero-panel-chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.chip{
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(36,25,16,0.12);
+  background: rgba(254,251,244,0.60);
+  font-family: "DM Mono";
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  opacity: 0.92;
+}
+
+/* OUTRO */
+.outro{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  border-top: 1px solid rgba(36,25,16,0.08);
+  background: var(--bg);
+}
+
+/* Mobile */
+@media (max-width: 1000px){
+  nav .nav-links, nav .nav-buttons { display:none; }
+  h1 { font-size: 2rem; }
+  .header h1 { width: 92%; }
+  .client-logos { width: 92%; }
+
+  .hero-panel-card{
+    grid-template-columns: 1fr;
+  }
+}

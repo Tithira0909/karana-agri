@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Karana Agri | Scroll Hero Sequence</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <nav>
+      <div class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#products">Products</a>
+        <a href="#resources">Resources</a>
+      </div>
+
+      <div class="logo">
+        <a href="#top">
+          <!-- placeholder -->
+          <img src="/logo.png" alt="Karana Agri logo" />
+          
+        </a>
+      </div>
+
+      <div class="nav-buttons">
+        <div class="btn primary"><a href="#demo">Live Demo</a></div>
+        <div class="btn secondary"><a href="#get-started">Get Started</a></div>
+      </div>
+    </nav>
+
+    <section class="hero" id="top">
+      <canvas class="hero-canvas"></canvas>
+
+      <!-- HERO CONTENT (fades out early) -->
+      <div class="hero-content" id="overview">
+        <div class="header">
+          <h1>One unified workspace to build, test, and ship AI faster</h1>
+          <p class="trusted">Trusted by</p>
+
+          <!-- <div class="client-logos">
+            <div class="client-logo"><img src="/client-logo-1.png" alt="" /></div>
+            <div class="client-logo"><img src="/client-logo-2.png" alt="" /></div>
+            <div class="client-logo"><img src="/client-logo-3.png" alt="" /></div>
+            <div class="client-logo"><img src="/client-logo-4.png" alt="" /></div>
+          </div> -->
+        </div>
+      </div>
+
+      <!-- ✅ MULTIPLE PRODUCT PANELS (cards) -->
+      <div class="hero-panels" id="products">
+        <!-- Panel 1 -->
+        <div class="hero-img-container hero-panel" data-start="0.18" data-end="0.26">
+          <div class="hero-panel-card">
+            <div class="hero-img">
+              <img src="/product-1.jpg" alt="Rice (placeholder)" />
+            </div>
+            <div class="hero-panel-text">
+              <h2>Rice</h2>
+              <p>Export availability: US, Europe, Asia, Dubai, Maldives, UK, China, Japan, EU</p>
+              <div class="hero-panel-chips">
+                <span class="chip">No preservatives</span>
+                <span class="chip">Natural</span>
+                <span class="chip">Export-ready</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2 -->
+        <div class="hero-img-container hero-panel" data-start="0.26" data-end="0.34">
+          <div class="hero-panel-card">
+            <div class="hero-img">
+              <img src="/product-2.png" alt="Coffee (placeholder)" />
+            </div>
+            <div class="hero-panel-text">
+              <h2>Coffee</h2>
+              <p>Export availability: US, Europe, Asia, Dubai, Maldives, UK, China, Japan, EU</p>
+              <div class="hero-panel-chips">
+                <span class="chip">Fresh</span>
+                <span class="chip">Premium</span>
+                <span class="chip">Export-ready</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 3 -->
+        <div class="hero-img-container hero-panel" data-start="0.34" data-end="0.42">
+          <div class="hero-panel-card">
+            <div class="hero-img">
+              <img src="/product-3.png" alt="Cashew Nuts (placeholder)" />
+            </div>
+            <div class="hero-panel-text">
+              <h2>Cashew Nuts</h2>
+              <p>Export availability: US, Europe, Asia, Dubai, Maldives, UK, China, Japan, EU</p>
+              <div class="hero-panel-chips">
+                <span class="chip">Hand-picked</span>
+                <span class="chip">Quality</span>
+                <span class="chip">Export-ready</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 4 -->
+        <div class="hero-img-container hero-panel" data-start="0.42" data-end="0.50">
+          <div class="hero-panel-card">
+            <div class="hero-img">
+              <img src="/product-4.png" alt="Fruits (placeholder)" />
+            </div>
+            <div class="hero-panel-text">
+              <h2>Fruits</h2>
+              <p>
+                Banana, Dragon Fruit, Mango, Pineapple, Passion Fruit, Longan, Mangosteen,
+                Rambutan, Durian, Avocado, Soursop (and more).
+              </p>
+              <div class="hero-panel-chips">
+                <span class="chip">Natural</span>
+                <span class="chip">Fresh</span>
+                <span class="chip">Export-ready</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 5 -->
+        <div class="hero-img-container hero-panel" data-start="0.50" data-end="0.58">
+          <div class="hero-panel-card">
+            <div class="hero-img">
+              <img src="/product-5.png" alt="Seedless Lime (placeholder)" />
+            </div>
+            <div class="hero-panel-text">
+              <h2>Seedless Lime</h2>
+              <p>Export availability: US, Europe, Asia, Dubai, Maldives, UK, China, Japan, EU</p>
+              <div class="hero-panel-chips">
+                <span class="chip">No preservatives</span>
+                <span class="chip">Farm-fresh</span>
+                <span class="chip">Export-ready</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 6 -->
+        <div class="hero-img-container hero-panel" data-start="0.58" data-end="0.66">
+          <div class="hero-panel-card">
+            <div class="hero-img">
+              <img src="/product-6.png" alt="Spices & Tea (placeholder)" />
+            </div>
+            <div class="hero-panel-text">
+              <h2>Spices & Tea</h2>
+              <p>Pepper, cinnamon, tea — curated for aroma, purity, and export quality.</p>
+              <div class="hero-panel-chips">
+                <span class="chip">Pure</span>
+                <span class="chip">Aromatic</span>
+                <span class="chip">Export-ready</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 7 -->
+        <div class="hero-img-container hero-panel" data-start="0.66" data-end="0.74">
+          <div class="hero-panel-card">
+            <div class="hero-img">
+              <img src="/product-7.png" alt="Nutmeg (placeholder)" />
+            </div>
+            <div class="hero-panel-text">
+              <h2>Nutmeg</h2>
+              <p>Export availability: US, Europe, Asia, Dubai, Maldives, UK, China, Japan, EU</p>
+              <div class="hero-panel-chips">
+                <span class="chip">Premium</span>
+                <span class="chip">Natural</span>
+                <span class="chip">Export-ready</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 8 -->
+        <div class="hero-img-container hero-panel" data-start="0.74" data-end="0.82">
+          <div class="hero-panel-card">
+            <div class="hero-img">
+              <img src="/product-8.png" alt="Pure Coconut Oil (placeholder)" />
+            </div>
+            <div class="hero-panel-text">
+              <h2>Pure Coconut Oil</h2>
+              <p>Carefully processed for purity — ideal for wellness and culinary use.</p>
+              <div class="hero-panel-chips">
+                <span class="chip">Pure</span>
+                <span class="chip">Natural</span>
+                <span class="chip">Export-ready</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 9 -->
+        <div class="hero-img-container hero-panel" data-start="0.82" data-end="0.90">
+          <div class="hero-panel-card">
+            <div class="hero-img">
+              <img src="/product-9.png" alt="Coconut Oil (placeholder)" />
+            </div>
+            <div class="hero-panel-text">
+              <h2>Coconut Oil</h2>
+              <p>Export availability: US, Europe, Asia, Dubai, Maldives, UK, China, Japan, EU</p>
+              <div class="hero-panel-chips">
+                <span class="chip">No preservatives</span>
+                <span class="chip">Clean</span>
+                <span class="chip">Export-ready</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 10 -->
+        <div class="hero-img-container hero-panel" data-start="0.90" data-end="0.96">
+          <div class="hero-panel-card">
+            <div class="hero-img">
+              <img src="/product-10.png" alt="Fresh Vegetables (placeholder)" />
+            </div>
+            <div class="hero-panel-text">
+              <h2>Fresh Vegetables</h2>
+              <p>
+                What we sell is nature’s medicine — no preservatives, only natural fruits and vegetables.
+              </p>
+              <div class="hero-panel-chips">
+                <span class="chip">Fresh</span>
+                <span class="chip">Natural</span>
+                <span class="chip">Export-ready</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 11 -->
+        <div class="hero-img-container hero-panel" data-start="0.96" data-end="0.995">
+          <div class="hero-panel-card">
+            <div class="hero-img">
+              <img src="/product-11.png" alt="Herbal Products (placeholder)" />
+            </div>
+            <div class="hero-panel-text">
+              <h2>Herbal Products</h2>
+              <p>Natural wellness products crafted for real human needs.</p>
+              <div class="hero-panel-chips">
+                <span class="chip">Natural</span>
+                <span class="chip">Wellness</span>
+                <span class="chip">Export-ready</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outro" id="resources">
+      <h1>Join teams building faster with Karana Agri.</h1>
+      <p style="text-transform:none; opacity:.75; margin-top:10px;">
+        Replace this section with your real website content.
+      </p>
+    </section>
+
+    <script type="module" src="/script.js"></script>
+  </body>
+</html>
