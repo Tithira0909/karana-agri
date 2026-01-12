@@ -1,0 +1,12 @@
+
+> cg-adaline-scroll-animation@1.0.0 dev
+> vite
+
+11:12:06 AM [vite] (client) Re-optimizing dependencies because lockfile has changed
+
+  VITE v7.2.7  ready in 781 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+11:19:34 AM [vite] (client) hmr update /styles.css?direct
+4:19:17 PM [vite] (client) page reload index.html
