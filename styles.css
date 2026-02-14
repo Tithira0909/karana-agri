@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap");
 
 :root {
   --fg: #241910;
@@ -34,6 +34,12 @@ h1 { font-size: 3rem; }
 p { text-transform: uppercase; font-size: 0.8rem; font-weight: 500; }
 a { text-decoration: none; text-transform: uppercase; font-size: 0.8rem; font-weight: 500; color: var(--fg); }
 
+/* Highlight text style */
+.highlight {
+  color: #ffeeb0; /* Light gold/yellow */
+  text-shadow: 0 0 20px rgba(255, 238, 176, 0.4);
+}
+
 .btn {
   padding: 0.75rem 1.5rem;
   border-radius: 999px;
@@ -66,10 +72,10 @@ nav .nav-links { display: flex; gap: 3rem; }
 
 nav .logo { display: flex; justify-content: center; align-items: center; }
 nav .logo img {
-  width: 6rem;
-  height: 6rem;
+  width: 9rem;
+  height: 9rem;
   object-fit: contain;
-  background: rgb(248, 247, 255);  
+  background: transparent;
   border-radius: 50px;          /* ✅ */
 }
 nav .logo a {
@@ -102,7 +108,12 @@ section { width: 100vw; height: 100vh; position: relative; overflow: hidden; }
   will-change: transform, opacity;
 }
 
-.header h1 { width: 72%; margin: 0 auto 0.5rem; }
+.header h1 {
+  width: 72%;
+  margin: 0 auto 0.5rem;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
 
 .client-logos {
   width: 42%;
@@ -147,13 +158,14 @@ section { width: 100vw; height: 100vh; position: relative; overflow: hidden; }
   width: min(980px, 92vw);
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 18px;
-  padding: 18px;
-  border-radius: 20px;
-  border: 1px solid rgba(36,25,16,0.12);
-  background: rgba(254, 251, 244, 0.75);
-  backdrop-filter: blur(10px);
-  box-shadow: var(--shadow);
+  gap: 24px;
+  padding: 32px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(31, 107, 59, 0.4);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08), 0 10px 15px rgba(0,0,0,0.05);
+  color: #ffffff;
 }
 
 /* image container inside card */
@@ -190,15 +202,17 @@ section { width: 100vw; height: 100vh; position: relative; overflow: hidden; }
   font-size: clamp(1.6rem, 2.3vw, 2.2rem);
   font-weight: 600;
   letter-spacing: -0.3px;
+  color: #ffffff;
 }
 
 .hero-panel-text p{
   text-transform: none;
   font-size: 1.02rem;
   line-height: 1.65;
-  opacity: 0.85;
+  opacity: 0.9;
   max-width: 62ch;
   font-family: "DM Mono"; /* keep paragraph mono if you like */
+  color: #ffffff;
 }
 
 /* small chips */
@@ -239,5 +253,173 @@ section { width: 100vw; height: 100vh; position: relative; overflow: hidden; }
 
   .hero-panel-card{
     grid-template-columns: 1fr;
+  }
+}
+
+/* Bottom Section Dark Mode */
+.bottom-section {
+  width: 100vw;
+  background: #1a1510;
+  color: #fefbf4;
+  padding: 6rem 2rem 4rem;
+  position: relative;
+  z-index: 5;
+}
+
+.bottom-container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 6rem;
+}
+
+/* Typography */
+.bottom-section h2, .bottom-section h3 {
+  font-family: "Italiana", serif;
+  font-weight: 400;
+  color: #ffeeb0; /* gold highlight */
+}
+
+.bottom-section h2 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+}
+
+.bottom-section h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 238, 176, 0.2);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.bottom-section p {
+  font-family: "Host Grotesk", sans-serif;
+  text-transform: none;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+}
+
+/* Buyers / Logos */
+.buyers-strip {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.buyer-badge {
+  padding: 0.8rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  font-family: "DM Mono";
+  font-size: 0.9rem;
+  color: #fff;
+  opacity: 0.7;
+}
+
+@media (max-width: 800px) {
+  .bottom-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .bottom-section h2 { font-size: 2.5rem; }
+}
+
+/* Standard Footer */
+.standard-footer {
+  background: #120e0b;
+  color: #fefbf4;
+  padding: 4rem 2rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  z-index: 5;
+}
+
+.footer-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand h4 {
+  font-family: "Italiana", serif;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #ffeeb0;
+}
+.footer-brand p {
+  opacity: 0.6;
+  font-size: 0.9rem;
+  max-width: 20ch;
+}
+
+.footer-nav h5, .footer-contact h5 {
+  font-family: "DM Mono";
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  opacity: 0.5;
+  letter-spacing: 1px;
+}
+
+.footer-nav a {
+  display: block;
+  color: #fff;
+  opacity: 0.7;
+  margin-bottom: 0.8rem;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: opacity 0.2s;
+}
+.footer-nav a:hover { opacity: 1; color: #ffeeb0; }
+
+.footer-contact p {
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+.social-icon {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.7rem;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.social-icon:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffeeb0;
+  color: #ffeeb0;
+  opacity: 1;
+}
+
+.footer-copyright {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 2rem;
+  opacity: 0.4;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 800px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
